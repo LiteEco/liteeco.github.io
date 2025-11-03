@@ -29,6 +29,7 @@ This command imports economy data from supported plugins directly into LiteEco. 
 | `BetterEconomy` | Imports data from **BetterEconomy** plugin storage. |
 | `ScruffyBoyEconomy` | Imports balances from **ScruffyBoyEconomy** plugin. |
 | `CraftConomy3` | Imports player data from the **CraftConomy3** database or storage files. |
+| `SimpleEconomy` | Imports player data from the **SimpleEconomy** database or storage files. |
 | `TheosisEconomy` | Imports balances from **TheosisEconomy** plugin. |
 
 ---
@@ -98,6 +99,7 @@ Import from **CraftConomy3** into the default LiteEco currency:
 | `BetterEconomy` | BetterEconomy plugin data | LiteEco database |
 | `ScruffyBoyEconomy` | ScruffyBoyEconomy plugin data | LiteEco database |
 | `CraftConomy3` | CraftConomy3 database/tables | LiteEco database |
+| `SimpleEconomy` | SimpleEconomy database/tables | LiteEco database |
 | `TheosisEconomy` | TheosisEconomy balances | LiteEco database |
 
 ---
