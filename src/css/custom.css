@@ -20,7 +20,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #4B9EDC;
+  --ifm-color-primary: #ffb100;
   --ifm-color-primary-dark: #438fc7;
   --ifm-color-primary-darker: #4088bc;
   --ifm-color-primary-darkest: #346d96;
@@ -29,4 +29,16 @@
   --ifm-color-primary-lightest: #85C5FF;
   
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.footer-social-link {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer-social-link:hover {
+  transform: scale(1.15);
+}
+
+.footer-social-link:active {
+  transform: scale(0.95); /* Efekt stisknutí tlačítka */
 }

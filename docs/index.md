@@ -41,6 +41,7 @@ It is designed to be fast, modular, and easy to configure – with support for m
 - [Debugging & Logging](user-guide/plugin-settings#-vault-debug)
 - [Export & Currencies](user-guide/export-currencies)
 - [Import & Currencies](user-guide/import-currencies)
+- [Debugging](user-guide/debugging)
 
 ---
 
