@@ -12,6 +12,6 @@ If you like this project, you can voluntarily support it financially.
 If you like LiteEco and want to support its development, consider buying me a coffee
 
 
-## Partners
+## Partners & Donators
 
-Place for partners, but now nobody xD
+[Schneidertm](https://github.com/Schneidertm)
