@@ -162,7 +162,7 @@ description: "All commands and permissions in plugin"
 
 -   **Description:** Export database
     
--   **Formats:** `SQL`, `CSV`, `LEGACY_TABLE`, `SQL_LITE_FILE`
+-   **Formats:** `SQL`, `CSV`, `LEGACY_TO_NEW`, `SQL_LITE_FILE`
     
 -   **Permission:** `lite.eco.admin.export`
     
