@@ -167,11 +167,11 @@ description: "All commands and permissions in plugin"
 -   **Permission:** `lite.eco.admin.export`
     
 
-### `/eco database import <plugin> [currency]`
+### `/eco database import <plugin> [into_curreny] [--from <currency>]`
 
 -   **Description:** Import from other plugins
     
--   **Plugins:** `EssentialsX`, `BetterEconomy`, `ScruffyBoyEconomy`, `CraftConomy3`, `TheosisEconomy`
+-   **Plugins:** `EssentialsX`, `BetterEconomy`, `ScruffyBoyEconomy`, `EzEconomy`, `TheosisEconomy`
     
 -   **Permission:** `lite.eco.admin.import`
     

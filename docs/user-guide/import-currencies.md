@@ -13,11 +13,11 @@ LiteEco provides a powerful import system for migrating player balance data from
 ## 🧩 Command Overview
 
 ```bash
-/eco database import <argument> <currency>
+/eco database import <argument> <into_currency> [--from <currency>]
 ```
 
 ### ➤ Description
-This command imports economy data from supported plugins directly into LiteEco. The imported balances will be assigned to the specified LiteEco currency defined in your `config.yml`.
+This command imports economy data from supported plugins directly into LiteEco. It now supports multi-currency migration, allowing you to import specific currencies from external plugins and assign them to your corresponding LiteEco currencies defined in the `config.yml`.
 
 ---
 
@@ -25,18 +25,19 @@ This command imports economy data from supported plugins directly into LiteEco. 
 
 | Argument | Description |
 |-----------|--------------|
-| `EssentialsX` | Imports player balances from the **EssentialsX** plugin. |
-| `BetterEconomy` | Imports data from **BetterEconomy** plugin storage. |
+| `EssentialsX` | Imports balances from the **EssentialsX** plugin. |
+| `BetterEconomy` | Imports balances from **BetterEconomy** plugin. |
 | `ScruffyBoyEconomy` | Imports balances from **ScruffyBoyEconomy** plugin. |
-| `CraftConomy3` | Imports player data from the **CraftConomy3** database or storage files. |
-| `SimpleEconomy` | Imports player data from the **SimpleEconomy** database or storage files. |
+| `EzEconomy` | Imports balances from the **EzEconomy** plugin. |
+| `SimpleEconomy` | Imports player data from the **SimpleEconomy** plugin. |
 | `TheosisEconomy` | Imports balances from **TheosisEconomy** plugin. |
+| `PlayerPoints` | Imports balances from **PlayerPoints** plugin. |
 
 ---
 
 ## 💰 Currency Parameter
 
-The `<currency>` argument refers to any currency key defined in your `config.yml` file under the `economy:` section of LiteEco.
+The `<into_currency>` argument refers to any currency key defined in your `config.yml` file under the `economy:` section of LiteEco.
 
 Example configuration:
 
@@ -73,9 +74,9 @@ Import data from **BetterEconomy** into the `credits` currency:
 /eco database import BetterEconomy credits
 ```
 
-Import from **CraftConomy3** into the default LiteEco currency:
+Import from **EzEconomy** into the dollars LiteEco currency from dollar currency:
 ```bash
-/eco database import CraftConomy3 dollars
+/eco database import EzEconomy dollars --from dollar
 ```
 
 ---
@@ -98,9 +99,10 @@ Import from **CraftConomy3** into the default LiteEco currency:
 | `EssentialsX` | EssentialsX economy data | LiteEco database |
 | `BetterEconomy` | BetterEconomy plugin data | LiteEco database |
 | `ScruffyBoyEconomy` | ScruffyBoyEconomy plugin data | LiteEco database |
-| `CraftConomy3` | CraftConomy3 database/tables | LiteEco database |
+| `EzEconomy` | EzEconomy database/tables | LiteEco database |
 | `SimpleEconomy` | SimpleEconomy database/tables | LiteEco database |
 | `TheosisEconomy` | TheosisEconomy balances | LiteEco database |
+| `PlayerPoints` | PlayerPoints balances | LiteEco database |
 
 ---
 

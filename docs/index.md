@@ -5,21 +5,22 @@ sidebar_position: 1
 
 # Index
 
-**LiteEco** is a modern, lightweight, and Vault-compatible economy plugin for Minecraft servers.  
-It is designed to be fast, modular, and easy to configure – with support for multiple currencies, databases, and customizable localization.
+**LiteEco** is a modern, lightweight, and Vault-compatible economy plugin for Minecraft servers.
+It is designed to be fast, modular, and easy to configure – now featuring full support for multi-threaded server software like **Folia**, along with multiple currencies, databases, and customizable localization.
 
 ---
 
 ## ✨ Key Features
 
-- ✅ **Vault integration** (for cross-plugin compatibility)
+- ✅ **Folia Support** (Full multi-threading compatibility)
 - 🏦 **Multi-currency support**
+- ✅ **Vault integration** (for cross-plugin compatibility)
 - 🌍 Fully customizable **locale files**
 - 🔁 **Pagination system** with interactive buttons
 - 💾 Support for **SQLite**, **MySQL**, **MariaDB**, and **PostgreSQL**
 - 📊 **bStats metrics** support
 - 🪛 Detailed **monolog economy logging**
-- ⚡ Minimal performance impact
+- ⚡ **Asynchronous operations** for minimal performance impact
 
 ---
 
