@@ -6,7 +6,7 @@ sidebar_position: 1
 # Index
 
 **LiteEco** is a modern, lightweight, and Vault-compatible economy plugin for Minecraft servers.
-It is designed to be fast, modular, and easy to configure – now featuring full support for multi-threaded server software like **Folia**, along with multiple currencies, databases, and customizable localization.
+It is designed to be fast, modular, and easy to configure – featuring full support for multi-threaded server software like **Folia**, along with multiple currencies, formatting options, databases, and customizable localization.
 
 ---
 
@@ -14,6 +14,7 @@ It is designed to be fast, modular, and easy to configure – now featuring full
 
 - ✅ **Folia Support** (Full multi-threading compatibility)
 - 🏦 **Multi-currency support**
+- 🎨 **Advanced Formatting** (Custom number formatting & locales)
 - ✅ **Vault integration** (for cross-plugin compatibility)
 - 🌍 Fully customizable **locale files**
 - 🔁 **Pagination system** with interactive buttons
@@ -30,6 +31,7 @@ It is designed to be fast, modular, and easy to configure – now featuring full
 - [Plugin Settings](user-guide/plugin-settings)
 - [Database Settings](user-guide/database-settings)
 - [Economy Settings](user-guide/economy-settings)
+- [Formatting Settings](user-guide/formatting-settings)
 
 ### ⚙️ Configuration
 - [Locale & Translation](Locale-and-Translation)
@@ -57,9 +59,10 @@ Whether you’re running a small survival server or a network with advanced need
 
 ## 📎 Helpful Links
 
+- 🌐 [Official Wiki](https://liteeco.github.io/)
 - 🔗 [Source Code](https://github.com/EncryptSL/LiteEco)
 - 🐛 [Issue Tracker](https://github.com/EncryptSL/LiteEco/issues)
-- 📥 [Releases](https://www.spigotmc.org/resources/liteeco-simple-economy-plugin-1-21-x.101934/updates)
+- 📥 [Download Platforms](download)
 - 🧪 [bStats Metrics](https://bstats.org/plugin/bukkit/LiteEco)
 
 ---
@@ -76,6 +79,10 @@ Feel free to open issues, suggest features, or submit pull requests.
 If you like LiteEco and want to support its development, consider buying me a coffee:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/encryptsl)
+
+:::warning Refund Policy
+All donations and financial contributions are completely voluntary and non-refundable. By supporting the development, you acknowledge that you are not purchasing a product or service, and no refunds will be issued under any circumstances. Thank you for understanding! ❤️
+:::
 
 > Thank you for your support! ❤️
 

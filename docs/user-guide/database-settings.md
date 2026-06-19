@@ -1,6 +1,6 @@
 ---
 title: Database Settings
-sidebar_position: 3
+sidebar_position: 2
 description: "How setup database connection"
 ---
 
@@ -19,12 +19,12 @@ You can configure the database connection in the `config.yml` file under the `da
 ```yaml
 database:
   connection:
-    driverClassName: "org.sqlite.JDBC"
+    driver_class_name: "org.sqlite.JDBC"
     jdbc_url: "jdbc:sqlite:plugins/LiteEco/database.db"
     username: user_name
     password: password
 
-  sql-plugin-logger: false
+  sql_plugin_logger: false
 ```
 
 ---
@@ -93,7 +93,7 @@ These are not required for **SQLite**.
 - If you experience issues with SQL queries or connections, you can enable the plugin's internal SQL logger:
 
 ```yaml
-sql-plugin-logger: true
+sql_plugin_logger: true
 ```
 
 This may help with debugging database-related problems.

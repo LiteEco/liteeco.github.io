@@ -1,6 +1,6 @@
 ---
 title: Economy Settings
-sidebar_position: 4
+sidebar_position: 3
 description: "How setup economy multiple currencies"
 ---
 
@@ -18,7 +18,6 @@ All currency settings are defined in the `config.yml` under the `economy:` secti
 economy:
   currencies:
     dollars:
-      currency_name: dollars
       currency_plural_name: dollars
       currency_singular_name: dollar
       currency_format: '$ <money>'
@@ -54,7 +53,6 @@ Each currency supports the following options:
 
 | Option                    | Description                                                                 |
 |---------------------------|------------------------------------------------------------------------------|
-| `currency_name`           | Name of the currency (e.g. *dollars*).                                      |
 | `currency_plural_name`    | Plural form (e.g. *dollars*).                                               |
 | `currency_singular_name`  | Singular form (e.g. *dollar*).                                              |
 | `currency_format`         | Format for displaying money. Use `<money>` as a placeholder. Example: `$ <money>` |
@@ -94,7 +92,6 @@ top_balances:
 
 ```yaml
 credits:
-  currency_name: credits
   currency_plural_name: credits
   currency_singular_name: credit
   currency_format: '€ <money>'

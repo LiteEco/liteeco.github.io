@@ -1,6 +1,6 @@
 ---
 title: Plugin Settings
-sidebar_position: 2
+sidebar_position: 1
 description: "How setup LiteEco plugin"
 ---
 
@@ -17,8 +17,8 @@ plugin:
   translation: EN_US
   prefix: "<dark_gray>[<green>Eco<dark_gray>] <dark_green>»</dark_gray>"
   metrics: true
-  vault-debug: false
-  offline-suggestion-players: true
+  vault_debug: false
+  offline_suggestion_players: true
 ```
 
 ---
@@ -29,7 +29,7 @@ plugin:
 - **Default:** `EN_US`  
 - Sets the language used for all plugin messages and system outputs.
 - Available translations can be found here:  
-  🔗 [Supported Locales (LangKey.kt)](https://github.com/EncryptSL/LiteEco/blob/main/src/main/kotlin/encryptsl/cekuj/net/api/enums/LangKey.kt)
+  🔗 [Supported Locales](https://github.com/EncryptSL/LiteEco/tree/main/src/main/resources/locale)
 
 ---
 
@@ -53,7 +53,7 @@ plugin:
 
 ---
 
-## 🪛 `vault-debug`
+## 🪛 `vault_debug`
 
 - **Type:** `true` / `false`  
 - **Default:** `false`  
@@ -61,7 +61,7 @@ plugin:
 
 ---
 
-## 👤 `offline-suggestion-players`
+## 👤 `offline_suggestion_players`
 
 - **Type:** `true` / `false`  
 - **Default:** `true`  
@@ -75,6 +75,6 @@ plugin:
 :::tip
 
 - Always set a `prefix` that fits your server's theme for better player experience.
-- If you're experiencing Vault compatibility issues, try setting `vault-debug` to `true` for detailed logs.
-- For servers with many offline players, enabling `offline-suggestion-players` can help with economy management.
+- If you're experiencing Vault compatibility issues, try setting `vault_debug` to `true` for detailed logs.
+- For servers with many offline players, enabling `offline_suggestion_players` can help with economy management.
 :::
