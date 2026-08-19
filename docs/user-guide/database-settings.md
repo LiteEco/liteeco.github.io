@@ -34,43 +34,47 @@ database:
 You can use any of the following database systems by setting the appropriate `driverClassName` and `jdbc_url`:
 
 ### • SQLite
-- **JDBC URL**:  
+
+- **JDBC URL**:
   ```
   jdbc:sqlite:plugins/LiteEco/database.db
   ```
-- **Driver**:  
+- **Driver**:
   ```
   org.sqlite.JDBC
   ```
 
 ### • MySQL
-- **JDBC URL**:  
+
+- **JDBC URL**:
   ```
   jdbc:mysql://your_host:port/name_of_database
   ```
-- **Driver**:  
+- **Driver**:
   ```
   com.mysql.cj.jdbc.Driver
   ```
 - ⚠️ **Note**: Do **not** use this driver with MariaDB version 11.x or newer.
 
 ### • MariaDB
-- **JDBC URL**:  
+
+- **JDBC URL**:
   ```
   jdbc:mariadb://your_host:port/name_of_database
   ```
-- **Driver**:  
+- **Driver**:
   ```
   org.mariadb.jdbc.Driver
   ```
 - 🔗 [Driver issue reference (JetBrains)](https://youtrack.jetbrains.com/issue/EXPOSED-170)
 
 ### • PostgreSQL
-- **JDBC URL**:  
+
+- **JDBC URL**:
   ```
   jdbc:postgresql://your_host:port/name_of_database
   ```
-- **Driver**:  
+- **Driver**:
   ```
   org.postgresql.Driver
   ```
@@ -99,7 +103,6 @@ sql_plugin_logger: true
 This may help with debugging database-related problems.
 
 ---
-
 
 :::tip
 

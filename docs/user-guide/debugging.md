@@ -20,6 +20,7 @@ LiteEco includes a built-in suite of debugging tools accessible via the `/eco de
 | `/eco debug inspect <player>` | `lite.eco.admin.debug.inspect` | Displays the current cache state and unsaved player balances. |
 | `/eco debug janitor` | `lite.eco.admin.debug.janitor` | Forces immediate synchronization of all offline players in the cache. |
 | `/eco debug stress <player> [it]` | `lite.eco.admin.debug.stress` | Runs a stress test of simultaneous transactions (Atomicity test). |
+| `/eco debug stress-shutdown [accounts]` | `lite.eco.admin.debug.stress` | Run global shutdown sync stress test on multiple cached accounts. |
 
 ---
 
@@ -33,7 +34,7 @@ This test verifies that if the database becomes unreachable, player data is not 
    - *System activates FailMode and deposits 500 units into your account.*
 2. Disconnect from the server.
 3. Monitor the console for the following log entry:
-   - `[LiteEco] Sync FAIL: ... Data preserved in cache`.
+   - `Sync FAIL for ...: Data preserved in cache for retry.`.
 4. Reconnect and inspect your cache: `/eco debug inspect <your_name>`.
    - *Verify that the data still exists in the cache as "pending sync".*
 5. Disable the failure simulation: `/eco debug failmode`.
@@ -48,6 +49,47 @@ This test ensures the plugin correctly handles extreme, simultaneous requests (e
 2. The plugin creates 100 pairs of asynchronous threads (simultaneous deposit + withdraw).
 3. Upon completion, your balance must be identical to your starting balance. If it differs, the cache locking mechanism (atomic operations) has failed.
 
+
+### 3. Global Shutdown Sync & Emergency Dump Test
+
+:::warning
+- This feature is implemented only in version 1.7.6 and above
+  :::
+
+This test verifies the plugin's ability to handle high-volume batch synchronization during a server shutdown, confirming that an automatic emergency SQL dump file is generated if the database is unreachable to prevent data loss.
+
+**Procedure:**
+1. Enable failure simulation to block all database writes:
+   - Execute: `/eco debug failmode`
+   - *System toggles fail mode ON, forcing database operations to intentionally fail.*
+2. Inject test accounts into the cache and prepare the shutdown state:
+   - Execute: `/eco debug stress-shutdown [accounts]` *(e.g., `/eco debug stress-shutdown 500`)*
+   - *System injects test accounts into the database, loads modified balances into the cache, and runs an initial sync check.*
+3. Trigger a server shutdown to execute `onDisable()` hooks:
+   - Execute in server console or as admin: `/stop`
+4. Inspect the server log during shutdown for the emergency recovery message:
+   - Look for the critical error output in the console:
+     ```text
+     -----------------------------------------------------------------
+     [LiteEco] ERROR: Failed to sync cache data with the database!
+     [LiteEco] A total of X account(s) could not be saved.
+     [LiteEco] Reason: Shutdown sync completed with errors.
+     [LiteEco]
+     [LiteEco] To prevent data loss, the unsaved cache has been dumped to:
+     [LiteEco] -> plugins/LiteEco/errors/restore_YYYY-MM-DD_HH-MM-SS.sql
+     [LiteEco]
+     [LiteEco] MANUAL RESTORE INSTRUCTIONS:
+     [LiteEco] Open the SQL file above in your database tool (HeidiSQL, phpMyAdmin, DBeaver)
+     [LiteEco] and execute it to manually update the player balances in the database.
+     -----------------------------------------------------------------
+     ```
+5. Verify the generated emergency dump file on disk:
+   - Start the server again and navigate to `plugins/LiteEco/errors/`.
+   - Confirm that `restore_<timestamp>.sql` exists and contains batch `INSERT ... ON DUPLICATE KEY UPDATE` queries for all unsaved test accounts.
+6. Test manual restoration:
+   - Import and execute the generated `.sql` file using your database management tool (HeidiSQL, phpMyAdmin, or DBeaver) to verify that player balances can be successfully restored.
+7. Clean up test data:
+   - Purge generated test accounts from the database: `/eco database purge TEST_ACCOUNTS`
 ---
 
 ## Internal Mechanisms

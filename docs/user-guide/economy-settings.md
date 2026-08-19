@@ -20,7 +20,7 @@ economy:
     dollars:
       currency_plural_name: dollars
       currency_singular_name: dollar
-      currency_format: '$ <money>'
+      currency_format: "$ <money>"
       starting_balance: 30
       balance_limit: 1000000
       balance_limit_check: true
@@ -41,6 +41,7 @@ economy:
 ## 🏦 Currencies
 
 ### ➤ `currencies`
+
 This section allows you to define **one or more currencies**. Each currency is represented by a unique key (e.g. `dollars`, `credits`).
 
 > ⚠️ **Important:** Do **not** rename existing currency keys if your server already stores data — these keys are linked to database tables.
@@ -51,15 +52,15 @@ This section allows you to define **one or more currencies**. Each currency is r
 
 Each currency supports the following options:
 
-| Option                    | Description                                                                 |
-|---------------------------|------------------------------------------------------------------------------|
-| `currency_plural_name`    | Plural form (e.g. *dollars*).                                               |
-| `currency_singular_name`  | Singular form (e.g. *dollar*).                                              |
-| `currency_format`         | Format for displaying money. Use `<money>` as a placeholder. Example: `$ <money>` |
-| `starting_balance`        | Amount given to new players without an existing account.                    |
-| `balance_limit`           | Maximum allowed balance for a player.                                       |
-| `balance_limit_check`     | Enables or disables enforcement of the balance limit.                       |
-| `compact_display`         | If `true`, large numbers will be shortened (e.g. `1M` instead of `1000000`). |
+| Option                   | Description                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------- |
+| `currency_plural_name`   | Plural form (e.g. _dollars_).                                                     |
+| `currency_singular_name` | Singular form (e.g. _dollar_).                                                    |
+| `currency_format`        | Format for displaying money. Use `<money>` as a placeholder. Example: `$ <money>` |
+| `starting_balance`       | Amount given to new players without an existing account.                          |
+| `balance_limit`          | Maximum allowed balance for a player.                                             |
+| `balance_limit_check`    | Enables or disables enforcement of the balance limit.                             |
+| `compact_display`        | If `true`, large numbers will be shortened (e.g. `1M` instead of `1000000`).      |
 
 ---
 
@@ -71,7 +72,7 @@ To improve control over who appears in the Top Balances (Top Leaders) ranking, a
 
 ```yaml
 top_balances:
-  filtering: true     # enables/disables name filtering
+  filtering: true # enables/disables name filtering
   blacklist:
     - ExamplePlayerName
     - TestAccount123
@@ -79,10 +80,12 @@ top_balances:
 ```
 
 ### ➤ Field Descriptions
+
 - `filtering` (`true` / `false`) — when set to `true`, the `blacklist` will be applied when building the Top Balances list. Names listed in the blacklist will be **excluded**. When set to `false`, the blacklist is ignored.
 - `blacklist` — a list of player names that should be excluded from the Top Balances results. Use exact usernames.
 
 **Notes & Recommendations**
+
 - Filtering is case-sensitive and compares exact player names.
 - In future versions, a `mode` option (e.g. `blacklist` / `whitelist`) may be added, but the current implementation only supports `filtering` + `blacklist`.
 
@@ -94,7 +97,7 @@ top_balances:
 credits:
   currency_plural_name: credits
   currency_singular_name: credit
-  currency_format: '€ <money>'
+  currency_format: "€ <money>"
   starting_balance: 30
   balance_limit: 1000000
   balance_limit_check: true
@@ -109,6 +112,7 @@ credits:
 ## 📜 Activity Logging
 
 ### ➤ `monolog_activity`
+
 - **Type**: `true` / `false`
 - **Default**: `true`
 - When enabled, all economy actions such as `/eco add`, `/eco set`, `/eco withdraw`, `/eco pay`, etc., will be logged.
@@ -121,12 +125,14 @@ credits:
 ---
 
 :::tip
+
 - Always include a default currency (like `dollars`) for Vault compatibility.
 - Use meaningful names and formats to enhance player immersion.
 - Compact formatting is useful for large-scale economies.
 - Use `balance_limit_check: false` for unlimited balances.
 - Use `top_balances.filtering: true` with a `blacklist` to exclude test or admin accounts from public leaderboards.
-:::
+  :::
+
 ---
 
 Would you like me to also include an example output of `/money top` before and after filtering (for clarity in documentation)?

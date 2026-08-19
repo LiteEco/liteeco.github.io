@@ -28,17 +28,20 @@ It is designed to be fast, modular, and easy to configure – featuring full sup
 ## 🧭 Navigation
 
 ### 📘 Getting Started
+
 - [Plugin Settings](user-guide/plugin-settings)
 - [Database Settings](user-guide/database-settings)
 - [Economy Settings](user-guide/economy-settings)
 - [Formatting Settings](user-guide/formatting-settings)
 
 ### ⚙️ Configuration
+
 - [Locale & Translation](Locale-and-Translation)
 - [Pagination Bar](user-guide/pagination-bar)
 - [Commands Overview](user-guide/commands-permissions)
 
 ### 🛠 Advanced
+
 - [Using Multiple Currencies](user-guide/economy-settings#-currencies)
 - [PostgreSQL / MySQL Setup](user-guide/database-settings#-postgresql)
 - [Debugging & Logging](user-guide/plugin-settings#-vault-debug)
