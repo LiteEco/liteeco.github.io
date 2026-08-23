@@ -35,7 +35,7 @@ This test verifies that if the database becomes unreachable, player data is not 
 2. Disconnect from the server.
 3. Monitor the console for the following log entry:
    - `Sync FAIL for ...: Data preserved in cache for retry.`.
-4. Reconnect and inspect your cache: `/eco debug inspect <your_name>`.
+4. Inspect your cache: `/eco debug inspect <your_name>`.
    - *Verify that the data still exists in the cache as "pending sync".*
 5. Disable the failure simulation: `/eco debug failmode`.
 6. Force the cleanup: `/eco debug janitor`.
