@@ -100,13 +100,14 @@ Import from **EzEconomy** into the dollars LiteEco currency from dollar currency
 
 | Argument            | Source Plugin                 | Import Target    |
 | ------------------- | ----------------------------- | ---------------- |
-| `EssentialsX`       | EssentialsX economy data      | LiteEco database |
-| `BetterEconomy`     | BetterEconomy plugin data     | LiteEco database |
-| `ScruffyBoyEconomy` | ScruffyBoyEconomy plugin data | LiteEco database |
-| `EzEconomy`         | EzEconomy database/tables     | LiteEco database |
-| `SimpleEconomy`     | SimpleEconomy database/tables | LiteEco database |
-| `TheosisEconomy`    | TheosisEconomy balances       | LiteEco database |
-| `PlayerPoints`      | PlayerPoints balances         | LiteEco database |
+| `EssentialsX`       | EssentialsX      | LiteEco database |
+| `CMI`       | CMI      | LiteEco database |
+| `BetterEconomy`     | BetterEconomy     | LiteEco database |
+| `ScruffyBoyEconomy` | ScruffyBoyEconomy | LiteEco database |
+| `EzEconomy`         | EzEconomy     | LiteEco database |
+| `SimpleEconomy`     | SimpleEconomy | LiteEco database |
+| `TheosisEconomy`    | TheosisEconomy       | LiteEco database |
+| `PlayerPoints`      | PlayerPoints        | LiteEco database |
 
 ---
 

@@ -3,15 +3,16 @@ title: Debugging
 sidebar_position: 9
 description: "Debugging of plugin tests"
 ---
-# Debugging & Integration Testing
+
+# 🛠️ Debugging & Integration Testing
 
 This guide outlines the procedures for testing and debugging the LiteEco plugin, specifically focusing on data integrity and simulating database failure scenarios (addressing issues related to data persistence, such as Issue #118).
 
-## Debug Commands
+## 🧰 Debug Commands
 
 LiteEco includes a built-in suite of debugging tools accessible via the `/eco debug` command. These tools are restricted to users with the `lite.eco.admin.debug.*` permission.
 
-### Command Overview
+### 📋 Command Overview
 
 | Command | Permission | Description |
 | :--- | :--- | :--- |
@@ -21,12 +22,13 @@ LiteEco includes a built-in suite of debugging tools accessible via the `/eco de
 | `/eco debug janitor` | `lite.eco.admin.debug.janitor` | Forces immediate synchronization of all offline players in the cache. |
 | `/eco debug stress <player> [it]` | `lite.eco.admin.debug.stress` | Runs a stress test of simultaneous transactions (Atomicity test). |
 | `/eco debug stress-shutdown [accounts]` | `lite.eco.admin.debug.stress` | Run global shutdown sync stress test on multiple cached accounts. |
+| `/eco debug dupe-test <target> [source] [amount] [requests] [currency]` | `lite.eco.admin.debug.stress` | Runs a concurrent transfer dupe test to verify locks and prevent race conditions. |
 
 ---
 
-## Testing Scenarios
+## 🧪 Testing Scenarios
 
-### 1. Database Failure Persistence Test
+### 1. 🔌 Database Failure Persistence Test
 This test verifies that if the database becomes unreachable, player data is not lost and remains safely in the cache until the connection is restored.
 
 **Procedure:**
@@ -41,7 +43,7 @@ This test verifies that if the database becomes unreachable, player data is not 
 6. Force the cleanup: `/eco debug janitor`.
    - *The data should now successfully write to the DB, and the cache will be cleared.*
 
-### 2. Transaction Atomicity Stress Test
+### 2. ⚡ Transaction Atomicity Stress Test
 This test ensures the plugin correctly handles extreme, simultaneous requests (e.g., two different plugins calling Vault at the same time) without causing race conditions.
 
 **Procedure:**
@@ -49,12 +51,11 @@ This test ensures the plugin correctly handles extreme, simultaneous requests (e
 2. The plugin creates 100 pairs of asynchronous threads (simultaneous deposit + withdraw).
 3. Upon completion, your balance must be identical to your starting balance. If it differs, the cache locking mechanism (atomic operations) has failed.
 
-
-### 3. Global Shutdown Sync & Emergency Dump Test
+### 3. 🚨 Global Shutdown Sync & Emergency Dump Test
 
 :::warning
 - This feature is implemented only in version 1.7.6 and above
-  :::
+:::
 
 This test verifies the plugin's ability to handle high-volume batch synchronization during a server shutdown, confirming that an automatic emergency SQL dump file is generated if the database is unreachable to prevent data loss.
 
@@ -90,14 +91,22 @@ This test verifies the plugin's ability to handle high-volume batch synchronizat
    - Import and execute the generated `.sql` file using your database management tool (HeidiSQL, phpMyAdmin, or DBeaver) to verify that player balances can be successfully restored.
 7. Clean up test data:
    - Purge generated test accounts from the database: `/eco database purge TEST_ACCOUNTS`
+
 ---
 
-## Internal Mechanisms
+## ⚙️ Internal Mechanisms
 
-### FailMode Logic
+### 🛟 Emergency Dump Mechanism
+In production environments (outside of debug testing), the **Emergency Dump** serves as a final safety net to prevent data loss during server shutdowns or unrecoverable database outages.
+
+* 💥 **Trigger Condition:** It activates automatically during plugin shutdown if the database is completely offline, unreachable, or if errors occur while writing cached balances to the database.
+* 📄 **Output File:** All uncommitted player balances remaining in the cache are serialized into an SQL script saved in `plugins/LiteEco/errors/restore_YYYY-MM-DD_HH-MM-SS.sql`.
+* 🛠️ **Manual Action Required:** The plugin **will not** automatically re-import this dump file on the next boot. Server administrators must manually import the `.sql` file into their database using a database management tool such as **phpMyAdmin**, **Adminer**, **HeidiSQL**, or **DBeaver**.
+
+### ⚠️ FailMode Logic
 The `failmode` command toggles a global boolean `DatabaseEcoModel.debugFailMode`. When enabled, every `set(uuid, currency, amount)` method in the database model immediately throws an `SQLException`.
 
-### Janitor Service
+### 🧹 Janitor Service
 The Janitor is a background service designed to:
 1. Iterate through all entries in the `PlayerAccount.cache`.
 2. Filter for players who are currently **offline**.

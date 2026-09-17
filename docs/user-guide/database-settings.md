@@ -31,53 +31,14 @@ database:
 
 ## 🗃️ Supported Database Types
 
-You can use any of the following database systems by setting the appropriate `driverClassName` and `jdbc_url`:
+You can use any of the following database systems by setting the appropriate `driver_class_name` and `jdbc_url`:
 
-### • SQLite
-
-- **JDBC URL**:
-  ```
-  jdbc:sqlite:plugins/LiteEco/database.db
-  ```
-- **Driver**:
-  ```
-  org.sqlite.JDBC
-  ```
-
-### • MySQL
-
-- **JDBC URL**:
-  ```
-  jdbc:mysql://your_host:port/name_of_database
-  ```
-- **Driver**:
-  ```
-  com.mysql.cj.jdbc.Driver
-  ```
-- ⚠️ **Note**: Do **not** use this driver with MariaDB version 11.x or newer.
-
-### • MariaDB
-
-- **JDBC URL**:
-  ```
-  jdbc:mariadb://your_host:port/name_of_database
-  ```
-- **Driver**:
-  ```
-  org.mariadb.jdbc.Driver
-  ```
-- 🔗 [Driver issue reference (JetBrains)](https://youtrack.jetbrains.com/issue/EXPOSED-170)
-
-### • PostgreSQL
-
-- **JDBC URL**:
-  ```
-  jdbc:postgresql://your_host:port/name_of_database
-  ```
-- **Driver**:
-  ```
-  org.postgresql.Driver
-  ```
+| Database | JDBC URL | Driver | Notes |
+| :--- | :--- | :--- | :--- |
+| **SQLite** | `jdbc:sqlite:plugins/LiteEco/database.db` | `org.sqlite.JDBC` | — |
+| **MySQL** | `jdbc:mysql://your_host:port/name_of_database` | `com.mysql.cj.jdbc.Driver` | ⚠️ Do **not** use with MariaDB v11.x+ |
+| **MariaDB** | `jdbc:mariadb://your_host:port/name_of_database` | `org.mariadb.jdbc.Driver` | 🔗 [Driver issue reference](https://youtrack.jetbrains.com/issue/EXPOSED-170) |
+| **PostgreSQL** | `jdbc:postgresql://your_host:port/name_of_database` | `org.postgresql.Driver` | — |
 
 ---
 
@@ -106,7 +67,7 @@ This may help with debugging database-related problems.
 
 :::tip
 
-- Always verify your `driverClassName` matches the database type you're using.
+- Always verify your `driver_class_name` matches the database type you're using.
 - Ensure your database server allows external connections if you're hosting it remotely.
 - When using SQLite, no external server is required – the database is stored locally.
 
