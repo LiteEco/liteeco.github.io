@@ -40,7 +40,18 @@ description: "All commands and permissions in plugin"
 | `/eco set <player> <amount> [currency]` | Set player's balance | Uses `@a` when no players are online | `lite.eco.admin.set` |
 | `/eco withdraw <player> <amount> [currency]` | Withdraw from player's account | Vanilla selector compatible | `lite.eco.admin.withdraw` |
 | `/eco delete <account> [currency]` | Delete player's account and balance.<br/>*(Requires confirmation unless bypassed)* | **Example:** `/eco delete Notch dollars`<br/>**Bypass Perm:**<br/>`lite.eco.admin.bypass.confirmation` | `lite.eco.admin.delete` |
-| `/eco monolog [page] [player]` | View transaction logs | **Example:** `/eco monolog 1 Notch` | `lite.eco.admin.monolog` |
+| `/eco monolog [page] [filter]` | View transaction logs (Supports advanced key-value filtering from `1.7.9-SNAPSHOT`) | **Example:** `/eco monolog 1 "a:DEPOSIT,c:gems"` | `lite.eco.admin.monolog` |
+
+:::tip[Monolog Filtering Syntax (v1.7.9-SNAPSHOT+)]
+The `[filter]` argument supports advanced key-value filtering. You can pass key-value pairs separated by commas or spaces, or enclose the entire filter string in quotes e.g., `"/eco monolog 1 "c:gems,u:user"`.
+
+#### Available Filter Keys:
+* **`t:<player>`** – **Target player**: Filter transactions where the given player was the recipient/target.
+* **`s:<player>`** or **`u:<player>`** – **Sender / User**: Filter transactions triggered by a specific player or admin.
+* **`c:<currency>`** – **Currency**: Filter logs by currency key (e.g. `c:dollars`, `c:gems`). Autocompletes available currencies.
+* **`a:<action>`** – **Action type**: Filter by transaction action. Supported values: `DEPOSIT`, `WITHDRAW`, `TRANSFER`, `SET`.
+* **`am:<amount>`** – **Minimum amount**: Filter transactions with an amount greater than or equal to the specified value (e.g. `am:500`).
+:::
 
 ### Database & Configuration Operations
 
@@ -72,4 +83,4 @@ These commands are intended for server administrators and developers to diagnose
 | `/eco debug inspect <player>` | Displays a detailed readout of the player's internal cache. | `lite.eco.admin.debug.inspect` |
 | `/eco debug stress <player> [iterations]` | Runs a concurrent stress test for transaction atomicity. | `lite.eco.admin.debug.stress` |
 | `/eco debug stress-shutdown [accounts]` | Run global shutdown sync stress test on multiple cached accounts. | `lite.eco.admin.debug.stress` |
-| `/eco debug dupe-test <target> [source] [amount] [requests] [currency]` | Runs a concurrent transfer dupe test to verify thread-safety locks and race condition prevention. |`lite.eco.admin.debug.stress` |
+| `/eco debug dupe-test <target> [source] [amount] [requests] [currency]` | Runs a concurrent transfer dupe test to verify thread-safety locks and race condition prevention. | `lite.eco.admin.debug.stress` |

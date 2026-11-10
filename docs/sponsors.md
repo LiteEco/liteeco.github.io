@@ -11,8 +11,10 @@ If you like this project, you can voluntarily support it financially.
 
 If you like LiteEco and want to support its development, consider buying me a coffee
 
-:::warning Refund Policy
+:::warning[Refund Policy]
+
 All donations and financial contributions are completely voluntary and non-refundable. By supporting the development, you acknowledge that you are not purchasing a product or service, and no refunds will be issued under any circumstances. Thank you for understanding! ❤️
+
 :::
 
 ## 🤝 Partners & Donators
